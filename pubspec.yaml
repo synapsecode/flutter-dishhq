@@ -2,7 +2,7 @@ name: dishhq
 description: Build Software. Fast. Magically
 version: 0.0.1
 author:
-homepage:
+homepage: https://github.com/synapsecode/flutter-dishhq.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http:
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
