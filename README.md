@@ -1,14 +1,65 @@
-# dishhq
+# DishHQ for flutter
 
-A new Flutter package project.
+Dish makes shipping software productive by managing all the hassle of building, shipping and managing software so your team can focus on the core product and forget the hassle.
+This package is a wrapper for the official DishHQ Rest API
+Learn more [here](https://dishhq.xyz/)
 
-## Getting Started
+## Install
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+Add this line to your **pubspec.yaml**:
+```yaml
+dependencies:
+  dishhq: ^0.0.1
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+Then run this command:
+```bash
+$ flutter packages get
+```
+
+Then add this import:
+```dart
+import 'package:dishhq/dishhq.dart';
+```
+
+## Supported Platforms
+- Android
+- iOS
+- macOS
+- Web (Not working due to CORS Issues)
+
+# Usage (KVDatabase)
+
+```dart
+//Import dish
+import 'package:dishhq/dishhq.dart';
+
+// Inside Stateful Widget, Initialize Dish KVDatabase Instance
+var db = Dish.database(apiKey: '<YOUR_API_KEY>');
+
+//Use the provided methods in your code
+
+Map res = await db.create(
+    key: 'yourkey',
+    value: 'yourvalue', 
+); //Create Method
+
+Map res = await db.update(
+    key: 'yourkey',
+    value: 'yourvalue', 
+); //Update Method
+
+Map res = await db.read(key:'yourkey'); //Read Method
+
+Map res = await db.delete(key: 'yourkey'); //Delete Method
+
+/*
+Each of these functions is a future that once resolved, returns a Map that looks like:
+{
+    "success": bool,  (if false => An API Error has definitely occured)
+    "message": String? (Usually contains the specific error message) | nullable
+    "value": String? (Contains the returned value Read Reqeusts) | nullable
+}
+NOTE: If value is null in a read request then check the message property of the response to check for errors
+*/
+```

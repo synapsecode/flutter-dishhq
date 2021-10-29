@@ -5,7 +5,6 @@ KVDatabase db = Dish.database(apiKey: 'atharvaJ0MKCG2');
 
 Future<List<Map>> testDishAPIWrapper() async {
   // Initialize
-  KVDatabase db = Dish.database(apiKey: 'hey@ayush.shZTTMGA1');
   Map c = await db.create(key: 'testUser', value: 'Manas'); //Create
   Map r1 = await db.read(key: 'testUser'); // Read(1) - TestCreate
   Map u = await db.update(key: 'testUser', value: 'Manas'); // Update
