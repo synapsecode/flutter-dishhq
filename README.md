@@ -26,7 +26,13 @@ import 'package:dishhq/dishhq.dart';
 - Android
 - iOS
 - macOS
-- Web (Not working due to CORS Issues)
+- Web
+- Linux (Untested)
+- Windows (Untested)
+
+> 🟡 Do not forget to enable internet permissions in the respective platforms <br>
+> 🟡 This package does not support null safety yet. Planning to add this in an upcoming update
+
 
 # Usage (KVDatabase)
 
@@ -63,3 +69,5 @@ Each of these functions is a future that once resolved, returns a Map that looks
 NOTE: If value is null in a read request then check the message property of the response to check for errors
 */
 ```
+
+## Test out the [Flutter Web Demo](https://flutter-dish-example.surge.sh/#/])

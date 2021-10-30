@@ -1,12 +1,18 @@
 import 'dart:convert';
 import 'package:dishhq/dishhq.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class KVDatabase {
   String apiKey = '0x00000000000000000';
-  KVDatabase({this.apiKey});
 
-  // KeyValueStore
+  ///KVDatabase is a class that allows you to interact with Dish's Key Value
+  ///Database API easily! It contains familiar functions that handle all the
+  ///important tasks associated with performing any database operations.
+  ///[apiKey] is your API Key
+  KVDatabase({@required this.apiKey});
+
+  ///This function generates database requests
   Future<Map> dbrequest({
     Map data,
     String method,
@@ -66,7 +72,9 @@ class KVDatabase {
     };
   }
 
-  Future<Map> create({String key, dynamic value}) async {
+  ///Performs a create request in your Dish Database
+  ///Returns a future that resolves to a Map.
+  Future<Map> create({@required String key, @required dynamic value}) async {
     return await dbrequest(
       apiKey: apiKey,
       data: {
@@ -78,7 +86,9 @@ class KVDatabase {
     );
   }
 
-  Future<Map> read({String key}) async {
+  ///Performs a read request in your Dish Database
+  ///Returns a future that resolves to a Map.
+  Future<Map> read({@required String key}) async {
     return await dbrequest(
       apiKey: apiKey,
       data: {'key': key},
@@ -87,7 +97,9 @@ class KVDatabase {
     );
   }
 
-  Future<Map> update({String key, dynamic value}) async {
+  ///Performs a update request in your Dish Database
+  ///Returns a future that resolves to a Map.
+  Future<Map> update({@required String key, @required dynamic value}) async {
     return await dbrequest(
       apiKey: apiKey,
       data: {'key': key, 'value': value},
@@ -96,7 +108,9 @@ class KVDatabase {
     );
   }
 
-  Future<Map> delete({String key}) async {
+  ///Performs a delete request in your Dish Database
+  ///Returns a future that resolves to a Map.
+  Future<Map> delete({@required String key}) async {
     return await dbrequest(
       apiKey: apiKey,
       data: {'key': key},
