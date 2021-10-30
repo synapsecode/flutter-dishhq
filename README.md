@@ -9,7 +9,7 @@ Learn more [here](https://dishhq.xyz/)
 Add this line to your **pubspec.yaml**:
 ```yaml
 dependencies:
-  dishhq: ^0.0.1
+  dishhq: ^0.0.3
 ```
 
 Then run this command:
